@@ -1,0 +1,39 @@
+{
+    "name": "yaquawa/laravel-passport-binary-uuid-adapter",
+    "description": "This package enables Laravel Passport to utilize binary UUID.",
+    "keywords": [
+        "verification",
+        "laravel"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/yaquawa/laravel-passport-binary-uuid-adapter",
+    "support": {
+        "issues": "https://github.com/yaquawa/laravel-passport-binary-uuid-adapter/issues",
+        "source": "https://github.com/yaquawa/laravel-passport-binary-uuid-adapter"
+    },
+    "authors": [
+        {
+            "name": "yaquawa",
+            "email": "yaquawa@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "ramsey/uuid": "^3.7",
+        "laravel/passport": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yaquawa\\Laravel\\PassportBinaryUuidAdapter\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yaquawa\\Laravel\\PassportBinaryUuidAdapter\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
