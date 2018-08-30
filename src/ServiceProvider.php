@@ -2,8 +2,9 @@
 
 namespace Yaquawa\Laravel\PassportBinaryUuidAdapter;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -32,10 +33,16 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
+        $this->switchTokenModel();
         $this->addUserProvider();
     }
 
-    public function addUserProvider()
+    protected function switchTokenModel()
+    {
+        Passport::useTokenModel(Token::class);
+    }
+
+    protected function addUserProvider()
     {
         Auth::provider('eloquent_with_binary_uuid', function ($app, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\UserProvider...
