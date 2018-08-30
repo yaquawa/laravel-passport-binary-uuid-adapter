@@ -12,7 +12,7 @@ First, pull in the package through Composer.
 composer require yaquawa/laravel-passport-binary-uuid-adapter
 ```
 
-This package is going to bind the `Laravel\Passport\Bridge\AccessTokenRepository` and `Laravel\Passport\ApiTokenCookieFactory` before Passport `make` it.
+This package is going to bind some classes of Passport before Passport `make` them.
 
 So to make it works, this package must be loaded before Passport's service provider.
 

@@ -2,9 +2,9 @@
 
 namespace Yaquawa\Laravel\PassportBinaryUuidAdapter;
 
-use Laravel\Passport\Token as BaseModel;
+use Laravel\Passport\Client as BaseModel;
 
-class Token extends BaseModel
+class Client extends BaseModel
 {
     use BinaryUuidFilter;
 }

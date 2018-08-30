@@ -1,9 +1,9 @@
 <?php
 
-namespace Yaquawa\Laravel\PassportBinaryUuidAdapter;
+namespace Yaquawa\Laravel\PassportBinaryUuidAdapter\Bridge;
 
-use Laravel\Passport\Bridge\AccessTokenRepository as BaseAccessTokenRepository;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
+use Laravel\Passport\Bridge\AccessTokenRepository as BaseAccessTokenRepository;
 
 class AccessTokenRepository extends BaseAccessTokenRepository
 {

@@ -17,7 +17,17 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->app->bind(
             \Laravel\Passport\Bridge\AccessTokenRepository::class,
-            AccessTokenRepository::class
+            Bridge\AccessTokenRepository::class
+        );
+
+        $this->app->bind(
+            \Laravel\Passport\Bridge\UserRepository::class,
+            Bridge\UserRepository::class
+        );
+
+        $this->app->bind(
+            \Laravel\Passport\Bridge\AuthCodeRepository::class,
+            Bridge\AuthCodeRepository::class
         );
 
         $this->app->bind(
@@ -33,13 +43,15 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        $this->switchTokenModel();
+        $this->switchModels();
         $this->addUserProvider();
     }
 
-    protected function switchTokenModel()
+    protected function switchModels(): void
     {
         Passport::useTokenModel(Token::class);
+        Passport::useClientModel(Client::class);
+        Passport::useAuthCodeModel(AuthCode::class);
     }
 
     protected function addUserProvider()
