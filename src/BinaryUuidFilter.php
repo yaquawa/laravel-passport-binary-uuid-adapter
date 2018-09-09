@@ -6,7 +6,7 @@ trait BinaryUuidFilter
 {
     public function toArray(): array
     {
-        $array            = parent::toArray();
+        $array = parent::toArray();
         $array['user_id'] = Helper::decodeUuid($array['user_id']);
 
         return $array;
@@ -22,8 +22,9 @@ trait BinaryUuidFilter
         parent::boot();
 
         static::saving(function (self $model) {
-            $userId = $model->getAttribute('user_id');
-            $model->setAttribute('user_id', Helper::encodeUuid($userId));
+            if ($userId = $model->getAttribute('user_id')) {
+                $model->setAttribute('user_id', Helper::encodeUuid($userId));
+            }
         });
     }
 }

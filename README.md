@@ -45,7 +45,7 @@ Furthermore, you can specify an array with `model`, in that case, the user provi
 
 ## Exception Handling
 Also, you should override the `context` method of `Illuminate\Foundation\Exceptions\Handler` in your `App\Exceptions\Handler` class.
-So the userId can be outputted as a normal UUID.
+So the `userId` can be outputted as a normal UUID.
 
 ```php
 namespace App\Exceptions;
