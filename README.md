@@ -65,8 +65,14 @@ class Handler extends ExceptionHandler
     protected function context()
     {
         try {
+            $userId = Auth::id();
+
+            if ($userId) {
+                $userId = Helper::decodeUuid($userId);
+            }
+
             return array_filter([
-                'userId' => Helper::decodeUuid(Auth::id()),
+                'userId' => $userId,
                 'email'  => Auth::user() ? Auth::user()->email : null,
             ]);
         } catch (Throwable $e) {
